@@ -1,0 +1,13 @@
+{
+  "id": "S",
+  "title": "Advanced Flow Networks: Maximum Throughput Computation",
+  "timeLimit": 2.5,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "4 5 1 4\n1 2 100\n1 3 100\n2 3 1\n2 4 100\n3 4 100\n", "out": "200\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4 5 1 4\n1 2 40\n1 3 20\n2 3 10\n2 4 20\n3 4 30\n", "out": "50\n"},
+    {"in": "5 7 1 5\n1 2 10\n1 3 10\n2 3 2\n2 4 4\n2 5 8\n3 5 9\n4 5 10\n", "out": "19\n"}
+  ]
+}

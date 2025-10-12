@@ -1,0 +1,21 @@
+Problem F — Dynamic Programming Primer: Fewest Coins for a Target
+=================================================================
+
+Given a target value and a set of coin denominations, determine the minimum
+number of coins required to make the target exactly.  If it is impossible,
+report so.
+
+Input
+-----
+- The first line contains two integers `S` and `m` (1 ≤ S ≤ 10^5, 1 ≤ m ≤ 50).
+- The second line contains `m` distinct positive integers `c_j` (1 ≤ c_j ≤ 10^4).
+
+Output
+------
+Print the minimum number of coins needed to form `S`.  If no combination of the
+coins totals `S`, print `-1`.
+
+Notes
+-----
+Classical unbounded coin change can be solved with dynamic programming in
+\(O(S·m)\) time.

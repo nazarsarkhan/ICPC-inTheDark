@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>ICPC (Team)</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg-gradient: radial-gradient(circle at top left, #dde3ff, #f6f8ff 35%, #eef2ff 60%, #fefefe 100%);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --header-bg: linear-gradient(135deg, #121c42, #192a6b);
+      --accent: #5564ff;
+      --accent-strong: #3947e0;
+      --text-muted: #4a5775;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-gradient);
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: #f8fbff;
+      padding: 18px 32px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      box-shadow: 0 12px 24px rgba(12, 18, 43, 0.35);
+    }
+
+    header .title { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.02em; }
+    header .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
+
+    .field {
+      display: flex; flex-direction: column; gap: 6px;
+      font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(224, 231, 255, 0.76);
+    }
+
+    .field input {
+      border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12); color: #fff; padding: 10px 14px;
+      min-width: 140px; font-size: 0.95rem; outline: none;
+      transition: border .2s ease, background .2s ease;
+    }
+    .field input:focus { border-color: rgba(255,255,255,.75); background: rgba(255,255,255,.2); }
+
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    button {
+      border: none; background: var(--accent); color: #fff; padding: 10px 20px;
+      font-weight: 600; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 16px 35px rgba(54,70,180,.35);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    button:hover { transform: translateY(-1px); background: var(--accent-strong); box-shadow: 0 20px 45px rgba(54,70,180,.45); }
+    button:active { transform: translateY(0); }
+
+    .error-banner {
+      width: min(1200px, 100%); margin: 16px auto 0; padding: 12px 16px; border-radius: 12px;
+      background: rgba(248,113,113,.15); color: #7f1d1d; border: 1px solid rgba(248,113,113,.35); font-weight: 600;
+    }
+    .error-banner[hidden] { display: none; }
+
+    main {
+      flex: 1; width: min(1200px, 100%); margin: 0 auto; padding: 28px;
+      display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 24px;
+    }
+
+    .card { background: var(--card-bg); border-radius: 18px; padding: 20px 24px; box-shadow: var(--card-shadow); backdrop-filter: blur(16px); display: flex; flex-direction: column; gap: 18px; }
+    .card h2 { margin: 0; font-size: 1.1rem; letter-spacing: .01em; }
+
+    #editorCard { display: flex; flex-direction: column; }
+    #editor { flex: 1; min-height: 420px; border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(15,23,42,.04); }
+
+    .result-box { background: rgba(248,250,255,.85); border-radius: 14px; padding: 16px 18px; border: 1px solid rgba(148,163,184,.35); display: flex; flex-direction: column; gap: 10px; }
+    .result-title { font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
+    .result-status { font-size: 1.1rem; font-weight: 600; color: #1d2a6b; }
+    .result-meta { font-size: .9rem; color: var(--text-muted); }
+
+    @media (max-width: 960px) { main { grid-template-columns: 1fr; } #editor { min-height: 360px; } }
+    @media (max-width: 640px) { header { padding: 18px; gap: 18px; } main { padding: 18px; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="title">ICPC Training — Team Console</div>
+  <div class="controls">
+    <label class="field">Room code
+      <input id="room" placeholder="e.g. room1" value="room1"/>
+    </label>
+    <label class="field">Problem code (A–Z lineup)
+      <input id="problem" placeholder="e.g. A (Hello, Judge!)" value="A"/>
+    </label>
+    <label class="field">Username
+      <input id="username" placeholder="e.g. team-alpha" value="team-alpha"/>
+    </label>
+    <div class="actions">
+      <button id="submitBtn">Submit solution</button>
+    </div>
+  </div>
+</header>
+
+<div class="error-banner" id="errorBanner" hidden role="alert"></div>
+
+<main>
+  <section class="card" id="editorCard">
+    <h2>Editor</h2>
+    <div id="editor"></div>
+  </section>
+  <section class="card">
+    <h2>Status</h2>
+    <div class="result-box">
+      <span class="result-title">Latest update</span>
+      <span class="result-status" id="resultStatus">No activity yet</span>
+      <span class="result-meta" id="resultMeta">Submit your solution to see the verdict.</span>
+      <span class="result-meta" id="resultDetails"></span>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/c_cpp");
+  editor.setValue(`#include <bits/stdc++.h>
+using namespace std;
+int main(){ios::sync_with_stdio(false);cin.tie(nullptr);
+// your code
+return 0;}`, -1);
+
+  function resolveApiBase() {
+    if (window.__ICPC_API_BASE) return window.__ICPC_API_BASE.replace(/\/$/, "");
+    const { origin, protocol } = window.location;
+    if (protocol?.startsWith("http") && origin && origin !== "null") {
+      return origin.replace(/\/$/, "");
+    }
+    return "http://localhost:3000";
+  }
+
+  const API = resolveApiBase();
+  const socket = io(API);
+  const roomEl = document.getElementById("room");
+  const problem = document.getElementById("problem");
+  const usernameEl = document.getElementById("username");
+  const resultStatus = document.getElementById("resultStatus");
+  const resultMeta = document.getElementById("resultMeta");
+  const resultDetails = document.getElementById("resultDetails");
+  const errorBanner = document.getElementById("errorBanner");
+
+  function join() {
+    const roomId = roomEl.value.trim() || "room1";
+    socket.emit("joinTeam", roomId);
+  }
+  join();
+  roomEl.addEventListener("change", join);
+
+  function currentUser() { return (usernameEl.value.trim() || "Anonymous"); }
+
+  function hideError() { errorBanner.hidden = true; errorBanner.textContent = ""; }
+  function showError(message) {
+    const text = message ? String(message) : "Unexpected error";
+    errorBanner.textContent = text;
+    errorBanner.hidden = false;
+  }
+
+  function renderSubmissionAck({ username, timestamp, message }) {
+    const user = username || currentUser();
+    const submittedAt = timestamp ? new Date(timestamp).toLocaleTimeString() : null;
+
+    resultStatus.textContent = "Submission received";
+    resultMeta.textContent = submittedAt
+      ? `By ${user} • Submitted at ${submittedAt}`
+      : `By ${user} • Submission stored`;
+    resultDetails.textContent = message || "Official verdict will be provided by the jury.";
+  }
+
+  async function post(url, body) {
+    const response = await fetch(API + url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    const text = await response.text();
+    let parsed = null;
+    if (text) {
+      try { parsed = JSON.parse(text); } catch { parsed = text; }
+    }
+
+    if (!response.ok) {
+      let message = `Request failed with status ${response.status}`;
+      if (parsed && typeof parsed === "object") {
+        message = parsed.error || parsed.detail || parsed.message || message;
+      } else if (typeof parsed === "string" && parsed.trim()) {
+        message = parsed.trim();
+      }
+      const error = new Error(message);
+      error.status = response.status;
+      if (parsed && typeof parsed === "object") {
+        if (parsed.detail && parsed.detail !== message) error.detail = parsed.detail;
+        error.payload = parsed;
+      } else {
+        error.payload = parsed;
+      }
+      throw error;
+    }
+    return parsed ?? {};
+  }
+
+  document.getElementById("submitBtn").onclick = async () => {
+    hideError();
+    resultStatus.textContent = "Submitting solution…";
+    resultMeta.textContent = `By ${currentUser()} • Waiting for verdict`;
+    resultDetails.textContent = "";
+
+    try {
+      const response = await post("/submit", {
+        source: editor.getValue(),
+        problemId: problem.value,
+        roomId: roomEl.value.trim(),
+        username: currentUser(),
+      });
+      const user = response.username || currentUser();
+      renderSubmissionAck({
+        username: user,
+        timestamp: response.timestamp,
+        message: response.message,
+      });
+    } catch (error) {
+      const detail = error.detail && error.detail !== error.message ? ` (${error.detail})` : "";
+      showError(`${error.message}${detail}`);
+      resultStatus.textContent = "Submission failed";
+      resultMeta.textContent = `By ${currentUser()} • Please try again`;
+      resultDetails.textContent = "";
+    }
+  };
+
+  // Team-facing events from the backend
+  socket.on("run_result", (r) => {
+    const time = r.time ?? "0.0";
+    const memory = r.memory ?? 0;
+    const status = r.status ?? "Unknown";
+    const user = r.username || currentUser();
+    resultStatus.textContent = `Run result: ${status}`;
+    resultMeta.textContent = `By ${user} • Time: ${time}s • Memory: ${memory} KB`;
+    resultDetails.textContent = r.outputHidden !== false ? hiddenNotice : "";
+  });
+
+  socket.on("submit_result_public", (r) => {
+    renderSubmissionAck({
+      username: r.username || currentUser(),
+      timestamp: r.timestamp,
+      message: r.message,
+    });
+  });
+</script>
+</body>
+</html>

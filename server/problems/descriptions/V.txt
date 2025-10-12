@@ -1,0 +1,21 @@
+Problem V — Inclusion-Exclusion DP: Counting Perfect Bipartite Matchings
+=======================================================================
+
+You are given an `n × n` binary matrix describing edges of a bipartite graph
+between `n` left vertices and `n` right vertices.  Count how many perfect
+matchings exist.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 20).
+- Each of the next `n` lines contains `n` integers `b_{i,j}` where each is either
+  0 or 1.  Entry `b_{i,j} = 1` means left vertex `i` can match right vertex `j`.
+
+Output
+------
+Print one integer — the total number of perfect matchings.
+
+Notes
+-----
+An inclusion–exclusion or bitmask DP over subsets of the right side works in
+\(O(n 2^n)\) time.  Answers fit in signed 64-bit integers in the tests.

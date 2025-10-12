@@ -1,0 +1,22 @@
+Problem S — Advanced Flow Networks: Maximum Throughput Computation
+==================================================================
+
+You are given a directed network with capacities and need to determine the
+maximum possible flow from a designated source `s` to sink `t`.
+
+Input
+-----
+- The first line contains four integers `n`, `m`, `s`, and `t`
+  (1 ≤ n ≤ 500, 0 ≤ m ≤ 10 000, 1 ≤ s, t ≤ n, s ≠ t).
+- Each of the next `m` lines contains three integers `u`, `v`, and `c`
+  (1 ≤ u, v ≤ n, 0 ≤ c ≤ 10^9) describing a directed edge with capacity `c`.
+  Multiple edges between the same pair of vertices may appear.
+
+Output
+------
+Print a single integer — the value of the maximum flow from `s` to `t`.
+
+Notes
+-----
+Dinic's or push-relabel algorithms comfortably solve the instances.  Edges are
+capacitated but not necessarily symmetric.

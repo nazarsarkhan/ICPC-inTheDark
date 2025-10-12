@@ -1,0 +1,20 @@
+Problem E — Prefix Mastery: Fast Range Sum Queries
+==================================================
+
+After reading an array of integers you will receive multiple queries asking for
+the sum on a closed interval.  Answer every query efficiently.
+
+Input
+-----
+- The first line contains two integers `n` and `q` (1 ≤ n, q ≤ 200 000).
+- The second line contains `n` integers `a_i` (−10^9 ≤ a_i ≤ 10^9).
+- Each of the next `q` lines contains two integers `l` and `r` (1 ≤ l ≤ r ≤ n),
+  describing a query interval.
+
+Output
+------
+For each query print the sum of `a_l + a_{l+1} + … + a_r` on its own line.
+
+Notes
+-----
+Pre-compute prefix sums so every query can be answered in constant time.

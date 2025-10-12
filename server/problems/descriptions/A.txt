@@ -1,0 +1,20 @@
+Problem A — Novice Arithmetic Warm-up: Sum a Sequence
+=====================================================
+
+You are given a list of integers and must report their total.  The task is to
+ensure newcomers can read integers, handle negative values, and accumulate the
+result without overflow.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 200 000).
+- The second line contains `n` integers `a_i` (−10^9 ≤ a_i ≤ 10^9).
+
+Output
+------
+Print a single integer equal to \(\sum_{i=1}^{n} a_i\).
+
+Notes
+-----
+A correct solution only needs linear time.  Watch out for the possibility that
+the answer may not fit in 32-bit signed arithmetic.

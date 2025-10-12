@@ -1,0 +1,13 @@
+{
+  "id": "B",
+  "title": "Beginner Counting Challenge: Multiples Under Watch",
+  "timeLimit": 1.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "6 3\n3 6 8 9 12 14\n", "out": "4\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5 2\n1 2 3 4 5\n", "out": "2\n"},
+    {"in": "7 5\n5 10 15 20 25 1 2\n", "out": "5\n"}
+  ]
+}

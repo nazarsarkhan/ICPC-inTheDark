@@ -1,0 +1,13 @@
+{
+  "id": "H",
+  "title": "Graph Exploration Basics: Counting Hidden Islands",
+  "timeLimit": 1.5,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "5 3\n1 2\n2 3\n4 5\n", "out": "2\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4 0\n", "out": "4\n"},
+    {"in": "6 4\n1 2\n2 3\n3 1\n5 6\n", "out": "3\n"}
+  ]
+}

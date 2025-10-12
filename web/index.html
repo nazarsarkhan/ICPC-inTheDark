@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>ICPC Practice Console</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: linear-gradient(160deg, #111827, #1f2937);
+      --panel: rgba(17, 24, 39, 0.88);
+      --border: rgba(148, 163, 184, 0.35);
+      --text: #e5e7eb;
+      --muted: rgba(209, 213, 219, 0.72);
+      --accent: #60a5fa;
+      --accent-strong: #3b82f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-end;
+      background: rgba(15, 23, 42, 0.75);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .title-group .title { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em; }
+    .title-group .subtitle { font-size: 0.95rem; color: var(--muted); }
+
+    .controls {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(191, 219, 254, 0.75);
+    }
+
+    .field input {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(30, 41, 59, 0.85);
+      color: var(--text);
+      padding: 10px 14px;
+      min-width: 150px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.2s ease, background 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: var(--accent);
+      background: rgba(30, 41, 59, 1);
+    }
+
+    main {
+      flex: 1;
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      padding: 28px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 20px 45px rgba(2, 6, 23, 0.5);
+      backdrop-filter: blur(18px);
+    }
+
+    h2 { margin: 0; font-size: 1.05rem; letter-spacing: 0.015em; }
+
+    #editor { min-height: 420px; border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.25); }
+
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      resize: vertical;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(30, 41, 59, 0.75);
+      color: var(--text);
+      padding: 12px 14px;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.95rem;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 14px;
+      min-height: 140px;
+      font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 600;
+      padding: 10px 22px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 16px 35px rgba(59, 130, 246, 0.35);
+    }
+
+    button:hover { transform: translateY(-1px); background: var(--accent-strong); box-shadow: 0 20px 45px rgba(96, 165, 250, 0.45); }
+    button:active { transform: translateY(0); }
+
+    .meta { font-size: 0.85rem; color: var(--muted); }
+
+    .error {
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(248, 113, 113, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      color: #fecaca;
+    }
+
+    @media (max-width: 1024px) { main { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      header { padding: 20px; }
+      main { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="title-group">
+    <span class="title">ICPC Practice Console</span>
+    <span class="subtitle">Lightweight panel for local testing</span>
+  </div>
+  <div class="controls">
+    <label class="field">Room
+      <input id="room" placeholder="e.g. room1" value="room1" />
+    </label>
+    <label class="field">Problem
+      <input id="problem" placeholder="e.g. A" value="A" />
+    </label>
+    <label class="field">Username
+      <input id="username" placeholder="e.g. dev" value="dev" />
+    </label>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Editor</h2>
+    <div id="editor"></div>
+    <div>
+      <h2>Custom stdin</h2>
+      <textarea id="stdin" placeholder="Paste your sample input"></textarea>
+    </div>
+    <div class="actions">
+      <button id="runBtn">Run</button>
+      <button id="submitBtn">Submit</button>
+    </div>
+    <div id="error" class="error" hidden></div>
+  </section>
+  <section class="panel">
+    <h2>Latest response</h2>
+    <span class="meta" id="statusMeta">No activity yet</span>
+    <pre id="status"></pre>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/c_cpp");
+  editor.setValue(`#include <bits/stdc++.h>
+using namespace std;
+int main(){ios::sync_with_stdio(false);cin.tie(nullptr);
+  // your code
+  return 0;
+}`, -1);
+
+  function resolveApiBase() {
+    if (window.__ICPC_API_BASE) return window.__ICPC_API_BASE.replace(/\/$/, "");
+    const { origin, protocol } = window.location;
+    if (protocol?.startsWith("http") && origin && origin !== "null") {
+      return origin.replace(/\/$/, "");
+    }
+    return "http://localhost:3000";
+  }
+
+  const API = resolveApiBase();
+  const socket = io(API);
+  const room = document.getElementById("room");
+  function joinRoom() {
+    const roomId = room.value.trim() || "room1";
+    socket.emit("joinTeam", roomId);
+    socket.emit("joinJury", roomId);
+  }
+  joinRoom();
+  room.addEventListener("change", joinRoom);
+
+  function currentUser() { return usernameEl.value.trim() || "Anonymous"; }
+
+  function hideError() { errorBox.hidden = true; errorBox.textContent = ""; }
+  function showError(message) {
+    errorBox.hidden = false;
+    errorBox.textContent = message ? String(message) : "Unexpected error";
+  }
+
+  function joinRoom() {
+    const roomId = roomEl.value.trim() || "room1";
+    socket.emit("joinTeam", roomId);
+  }
+
+  joinRoom();
+  roomEl.addEventListener("change", joinRoom);
+
+  async function post(url, body) {
+    const response = await fetch(API + url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+
+    const text = await response.text();
+    let parsed = null;
+    if (text) {
+      try { parsed = JSON.parse(text); } catch { parsed = text; }
+    }
+
+    if (!response.ok) {
+      const detail = parsed && typeof parsed === "object"
+        ? parsed.error || parsed.detail || parsed.message
+        : (typeof parsed === "string" ? parsed : null);
+      const message = detail ? String(detail) : `Request failed with status ${response.status}`;
+      const error = new Error(message);
+      error.detail = parsed?.detail || null;
+      throw error;
+    }
+
+    return parsed ?? {};
+  }
+
+  function renderRun(result) {
+    const lines = [
+      `Status: ${result.status || "Unknown"}`,
+      `Time: ${result.time ?? "?"} s`,
+      `Memory: ${result.memory ?? "?"} KB`,
+    ];
+    if (result.outputHidden) {
+      lines.push("Program output is hidden on team clients.");
+    }
+    statusBox.textContent = lines.join("\n");
+    statusMeta.textContent = `Run at ${new Date(result.timestamp || Date.now()).toLocaleTimeString()} by ${currentUser()}`;
+  }
+
+  function renderSubmit(payload) {
+    statusBox.textContent = payload.message || "Submission stored";
+    const when = payload.timestamp ? new Date(payload.timestamp).toLocaleTimeString() : new Date().toLocaleTimeString();
+    statusMeta.textContent = `Submission acknowledged for ${payload.problemId || problemEl.value} at ${when} by ${payload.username || currentUser()}`;
+  }
+
+  document.getElementById("runBtn").onclick = async () => {
+    hideError();
+    statusMeta.textContent = `Run in progress for ${problemEl.value || "?"}`;
+    statusBox.textContent = "Running on Judge0…";
+
+    try {
+      const result = await post("/run", {
+        source: editor.getValue(),
+        stdin: stdinEl.value,
+        roomId: roomEl.value.trim(),
+        username: currentUser(),
+      });
+      renderRun(result);
+    } catch (error) {
+      showError(error.message);
+      statusBox.textContent = "Run failed.";
+    }
+  };
+
+  document.getElementById("submitBtn").onclick = async () => {
+    hideError();
+    statusMeta.textContent = `Submitting ${problemEl.value || "?"}`;
+    statusBox.textContent = "Submitting solution…";
+
+    try {
+      const payload = await post("/submit", {
+        source: editor.getValue(),
+        problemId: problemEl.value,
+        roomId: roomEl.value.trim(),
+        username: currentUser(),
+      });
+      renderSubmit(payload);
+    } catch (error) {
+      showError(error.message);
+      statusBox.textContent = "Submission failed.";
+    }
+  };
+
+  socket.on("run_result", (r) => {
+    if (room.value) {
+      // Hook for optional run log rendering.
+    }
+  });
+  socket.on("submit_result_public", (r) => {
+    if (room.value) {
+      // Hook for optional submission widgets.
+    }
+  });
+  socket.on("scoreboard", (s) => {
+    // Render your scoreboard UI here if you broadcast updates.
+    console.log("scoreboard", s);
+  });
+</script>
+</body>
+</html>

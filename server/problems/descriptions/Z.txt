@@ -1,0 +1,25 @@
+Problem Z — State-Augmented Dijkstra: Zero-Gravity Parity Routing
+=================================================================
+
+A transportation network uses gravity flips along some edges.  Each directed
+edge has a traversal cost and a parity bit (0 meaning gravity stays the same,
+1 meaning gravity flips).  Starting at vertex `s` with even parity, find the
+cheapest path to vertex `t` that arrives with even parity as well.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 100 000, 0 ≤ m ≤ 300 000).
+- Each of the next `m` lines contains four integers `u`, `v`, `w`, and `p`
+  (1 ≤ u, v ≤ n, 0 ≤ w ≤ 10^9, p ∈ {0, 1}) describing a directed edge from `u`
+  to `v` with cost `w` and parity flip `p`.
+- The final line contains two integers `s` and `t` (1 ≤ s, t ≤ n).
+
+Output
+------
+Print the minimum total cost to travel from `s` to `t` while ending with even
+parity.  If it is impossible, print `-1`.
+
+Notes
+-----
+Run Dijkstra's algorithm on an expanded state space with two parity states per
+vertex.  Only the state `(t, even)` is considered a goal.

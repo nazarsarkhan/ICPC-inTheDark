@@ -1,0 +1,18 @@
+Problem B — Beginner Counting Challenge: Multiples Under Watch
+==============================================================
+
+Check how many numbers in a sequence are divisible by a given value `k`.
+
+Input
+-----
+- The first line contains two integers `n` and `k` (1 ≤ n ≤ 200 000, 1 ≤ k ≤ 10^9).
+- The second line contains `n` integers `a_i` (−10^9 ≤ a_i ≤ 10^9).
+
+Output
+------
+Print one integer: the count of indices `i` such that `a_i` is divisible by `k`.
+
+Notes
+-----
+Iterate once through the array and use the modulo operator.  Remember that zero
+is divisible by every non-zero `k`.

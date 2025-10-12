@@ -1,0 +1,19 @@
+Problem D — Stack Fundamentals: Fully Balanced Delimiters
+==========================================================
+
+Given a string formed only from parentheses, square brackets, and curly braces,
+check whether it is fully balanced: every opening symbol must be closed by the
+same type in the correct order.
+
+Input
+-----
+- A single line containing between 1 and 200 000 characters drawn from `()[]{}`.
+
+Output
+------
+Print `YES` if the delimiter sequence is balanced, and `NO` otherwise.
+
+Notes
+-----
+Maintain a stack of open symbols and ensure that the closing characters match
+and the stack is empty at the end.

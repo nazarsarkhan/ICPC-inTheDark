@@ -1,0 +1,21 @@
+Problem O — Weighted Interval Scheduling: Optimal Non-Overlapping Value
+========================================================================
+
+You are given jobs, each with a start time, finish time, and reward.  Choose a
+subset of non-overlapping jobs that maximizes the total reward.  Jobs that touch
+at endpoints (one finishes exactly when another starts) do not overlap.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 200 000).
+- Each of the next `n` lines contains three integers `s_i`, `f_i`, and `v_i`
+  (0 ≤ s_i < f_i ≤ 10^9, 0 ≤ v_i ≤ 10^9) describing a job.
+
+Output
+------
+Print a single integer — the maximum total reward attainable without overlaps.
+
+Notes
+-----
+Sort the jobs by finish time and use dynamic programming with binary search to
+find the previous compatible job in \(O(n \log n)\) time.

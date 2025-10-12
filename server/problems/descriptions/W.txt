@@ -1,0 +1,21 @@
+Problem W — Hungarian Challenge: Minimum-Cost Perfect Matching
+==============================================================
+
+Given an `n × n` cost matrix describing the cost of assigning each of `n` jobs
+to `n` workers, compute the minimum total cost assignment such that each worker
+is assigned exactly one job and vice versa.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 50).
+- Each of the next `n` lines contains `n` integers `c_{i,j}` (0 ≤ c_{i,j} ≤ 10^9)
+  describing the assignment costs.
+
+Output
+------
+Print one integer — the minimum possible total cost of a perfect matching.
+
+Notes
+-----
+Use the Hungarian algorithm or min-cost max-flow.  Beware of 64-bit overflow
+when summing large costs.

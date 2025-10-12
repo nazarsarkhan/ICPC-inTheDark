@@ -1,0 +1,13 @@
+{
+  "id": "N",
+  "title": "Directed Graph Depth: Counting Strongly Connected Components",
+  "timeLimit": 2.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "5 6\n1 2\n2 1\n2 3\n3 4\n4 3\n4 5\n", "out": "3\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4 4\n1 2\n2 3\n3 4\n4 1\n", "out": "1\n"},
+    {"in": "6 7\n1 2\n2 3\n3 1\n3 4\n4 5\n5 4\n5 6\n", "out": "3\n"}
+  ]
+}

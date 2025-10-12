@@ -1,0 +1,21 @@
+Problem R — Matrix-Tree Application: Counting Spanning Trees
+===========================================================
+
+Given a connected, simple, undirected graph, determine how many distinct
+spanning trees it has.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 50, n − 1 ≤ m ≤ n(n − 1)/2).
+- Each of the next `m` lines contains two integers `u` and `v` (1 ≤ u, v ≤ n,
+  u ≠ v) describing an undirected edge.  There are no multiple edges.
+
+Output
+------
+Print one integer — the number of spanning trees.  The answer fits in signed
+64-bit range for the tests.
+
+Notes
+-----
+Use Kirchhoff's Matrix-Tree Theorem: build the Laplacian matrix, delete any one
+row and column, and take the determinant of the resulting minor.

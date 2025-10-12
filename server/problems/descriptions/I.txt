@@ -1,0 +1,23 @@
+Problem I — Weighted Graphs I: Single-Pair Dijkstra Mastery
+============================================================
+
+Find the minimum total weight of a path from a given start vertex `s` to target
+vertex `t` in a directed graph with non-negative edge weights.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 100 000, 0 ≤ m ≤ 200 000).
+- Each of the next `m` lines contains three integers `u`, `v`, and `w`
+  (1 ≤ u, v ≤ n, 0 ≤ w ≤ 10^9) describing a directed edge from `u` to `v` with
+  weight `w`.
+- The final line contains two integers `s` and `t` (1 ≤ s, t ≤ n).
+
+Output
+------
+Print the minimum possible total weight from `s` to `t`.  If `t` is unreachable,
+print `-1`.
+
+Notes
+-----
+Dijkstra's algorithm with a priority queue runs in \(O((n + m) \log n)\) time and
+handles non-negative weights.

@@ -1,0 +1,13 @@
+{
+  "id": "Q",
+  "title": "Quadratic DP Classic: Levenshtein Edit Distance",
+  "timeLimit": 2.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "kitten\nsitting\n", "out": "3\n"}
+  ],
+  "hiddenTests": [
+    {"in": "intention\nexecution\n", "out": "5\n"},
+    {"in": "abc\nabc\n", "out": "0\n"}
+  ]
+}

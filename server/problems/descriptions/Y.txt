@@ -1,0 +1,19 @@
+Problem Y — 2D Optimization: Maximum Sum Submatrix Search
+=========================================================
+
+Given a matrix of integers, find the axis-aligned submatrix with the maximum
+possible sum.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n, m ≤ 300).
+- Each of the next `n` lines contains `m` integers `a_{i,j}` (−10^9 ≤ a_{i,j} ≤ 10^9).
+
+Output
+------
+Print a single integer — the largest sum of any non-empty submatrix.
+
+Notes
+-----
+Compress rows and apply Kadane's algorithm, or use any \(O(n^2 m)\) approach
+suitable for dense matrices.

@@ -1,0 +1,13 @@
+{
+  "id": "X",
+  "title": "Linear Algebra over GF(2): XOR Basis Dimension",
+  "timeLimit": 2.5,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "3\n1 2 3\n", "out": "2\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4\n7 11 13 17\n", "out": "4\n"},
+    {"in": "5\n8 4 12 2 6\n", "out": "3\n"}
+  ]
+}

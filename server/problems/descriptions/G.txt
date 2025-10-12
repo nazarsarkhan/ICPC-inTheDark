@@ -1,0 +1,20 @@
+Problem G — Intermediate DP: Longest Increasing Subsequence Length
+==================================================================
+
+Find the length of the longest strictly increasing subsequence of a sequence of
+integers.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 200 000).
+- The second line contains `n` integers `a_i` (−10^9 ≤ a_i ≤ 10^9).
+
+Output
+------
+Print a single integer — the length of the longest strictly increasing
+subsequence of the sequence.
+
+Notes
+-----
+An \(O(n \log n)\) patience-sorting style algorithm is fast enough, but a pure
+\(O(n^2)\) DP also works within generous limits for small cases.

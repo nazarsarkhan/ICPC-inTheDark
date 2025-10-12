@@ -1,0 +1,13 @@
+{
+  "id": "V",
+  "title": "Inclusion-Exclusion DP: Counting Perfect Bipartite Matchings",
+  "timeLimit": 3.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "3\n1 1 0\n1 1 1\n0 1 1\n", "out": "3\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4\n1 1 0 0\n0 1 1 0\n0 0 1 1\n1 0 0 1\n", "out": "2\n"},
+    {"in": "3\n1 0 0\n0 1 0\n0 0 1\n", "out": "1\n"}
+  ]
+}

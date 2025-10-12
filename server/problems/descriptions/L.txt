@@ -1,0 +1,18 @@
+Problem L — Advanced DP Strings: Longest Palindromic Subsequence
+=================================================================
+
+Given a string, determine the length of its longest palindromic subsequence.
+Characters can be skipped but not reordered.
+
+Input
+-----
+- A single line containing a string `s` of length 1 ≤ |s| ≤ 2000 composed of
+  uppercase and lowercase English letters.
+
+Output
+------
+Print one integer: the length of the longest palindromic subsequence of `s`.
+
+Notes
+-----
+A classic \(O(|s|^2)\) dynamic programming solution over substrings suffices.

@@ -1,0 +1,20 @@
+Problem C — String Cleansing Drill: Palindrome Ignoring Noise
+=============================================================
+
+Determine whether an input string becomes a palindrome after deleting every
+character that is not a letter or digit and ignoring case differences.
+
+Input
+-----
+- A single line containing up to 200 000 printable ASCII characters.
+
+Output
+------
+Print `YES` if, after removing all non-alphanumeric characters and converting
+letters to a common case, the string reads the same forward and backward.
+Otherwise print `NO`.
+
+Notes
+-----
+This is a linear-time two-pointer or filtered-string comparison problem.  Unicode
+normalisation is not required; the test data stays within standard ASCII.

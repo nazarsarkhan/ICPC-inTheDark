@@ -1,0 +1,23 @@
+Problem J — Topological Discipline: Lexicographically Minimal Ordering
+======================================================================
+
+You are given a directed acyclic graph whose vertices are labeled from 1 to `n`.
+Produce a topological ordering, but among all valid orders choose the one that is
+lexicographically smallest when read left to right.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 200 000, 0 ≤ m ≤ 200 000).
+- Each of the next `m` lines contains two integers `u` and `v` (1 ≤ u, v ≤ n,
+  u ≠ v) describing a directed edge from `u` to `v`.
+
+Output
+------
+Print `n` integers separated by single spaces — the lexicographically smallest
+topological ordering.  If multiple vertices are simultaneously available, always
+select the smallest label.
+
+Notes
+-----
+Maintain in-degrees and a min-priority queue to repeatedly pick the smallest
+available vertex.

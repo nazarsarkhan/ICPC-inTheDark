@@ -1,0 +1,13 @@
+{
+  "id": "F",
+  "title": "Dynamic Programming Primer: Fewest Coins for a Target",
+  "timeLimit": 1.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "14 3\n1 7 10\n", "out": "2\n"}
+  ],
+  "hiddenTests": [
+    {"in": "27 3\n2 5 10\n", "out": "4\n"},
+    {"in": "23 2\n9 6\n", "out": "-1\n"}
+  ]
+}

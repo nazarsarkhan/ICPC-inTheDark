@@ -1,0 +1,13 @@
+{
+  "id": "U",
+  "title": "Bitmask DP Finale: Exact Traveling Salesman Tour",
+  "timeLimit": 3.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "4\n0 10 15 20\n10 0 35 25\n15 35 0 30\n20 25 30 0\n", "out": "80\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4\n0 5 9 10\n5 0 7 8\n9 7 0 6\n10 8 6 0\n", "out": "28\n"},
+    {"in": "5\n0 14 4 10 20\n14 0 7 8 7\n4 7 0 7 16\n10 8 7 0 9\n20 7 16 9 0\n", "out": "37\n"}
+  ]
+}

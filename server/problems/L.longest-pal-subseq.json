@@ -1,0 +1,13 @@
+{
+  "id": "L",
+  "title": "Advanced DP Strings: Longest Palindromic Subsequence",
+  "timeLimit": 2.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "bbbab\n", "out": "4\n"}
+  ],
+  "hiddenTests": [
+    {"in": "agbdba\n", "out": "5\n"},
+    {"in": "abcd\n", "out": "1\n"}
+  ]
+}

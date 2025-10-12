@@ -1,0 +1,13 @@
+{
+  "id": "C",
+  "title": "String Cleansing Drill: Palindrome Ignoring Noise",
+  "timeLimit": 1.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "Madam, I'm Adam\n", "out": "YES\n"}
+  ],
+  "hiddenTests": [
+    {"in": "No lemon, no melon\n", "out": "YES\n"},
+    {"in": "Hello, World!\n", "out": "NO\n"}
+  ]
+}

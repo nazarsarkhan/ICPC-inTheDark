@@ -1,0 +1,13 @@
+{
+  "id": "Y",
+  "title": "2D Optimization: Maximum Sum Submatrix Search",
+  "timeLimit": 3.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "3 3\n-1 -2 -3\n-4 5 6\n-7 8 9\n", "out": "28\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4 4\n1 -2 3 -4\n-5 6 -7 8\n9 -10 11 -12\n-13 14 -15 16\n", "out": "16\n"},
+    {"in": "4 5\n4 -1 -2 1 0\n-2 5 -3 4 -1\n-1 -2 6 -5 2\n2 -3 -4 5 -6\n", "out": "6\n"}
+  ]
+}

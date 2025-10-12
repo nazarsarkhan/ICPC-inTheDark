@@ -1,0 +1,21 @@
+Problem U — Bitmask DP Finale: Exact Traveling Salesman Tour
+============================================================
+
+Given a complete weighted graph on `n` cities with `n ≤ 16`, starting from city 0
+travel exactly once through every city and return to the start while minimizing
+the total travel cost.
+
+Input
+-----
+- The first line contains an integer `n` (2 ≤ n ≤ 16).
+- Each of the next `n` lines contains `n` integers `d_{i,j}` (0 ≤ d_{i,j} ≤ 10^9)
+  describing the symmetric distance matrix with `d_{i,i} = 0`.
+
+Output
+------
+Print a single integer — the minimum possible tour cost visiting every city once
+and returning to the starting city 0.
+
+Notes
+-----
+Use Held–Karp style bitmask DP in \(O(n^2 2^n)\) time.

@@ -1,0 +1,22 @@
+Problem T — Tree DP Masterclass: Maximum Weighted Independent Set
+=================================================================
+
+On a tree with weights on vertices, select a subset of vertices with maximum
+possible total weight such that no two selected vertices are adjacent.
+
+Input
+-----
+- The first line contains an integer `n` (1 ≤ n ≤ 200 000).
+- The second line contains `n` integers `w_i` (0 ≤ w_i ≤ 10^9) representing the
+  weight of each vertex.
+- Each of the next `n − 1` lines contains two integers `u` and `v`
+  (1 ≤ u, v ≤ n) describing an edge of the tree.
+
+Output
+------
+Print a single integer — the maximum achievable total weight.
+
+Notes
+-----
+Root the tree anywhere and use DP with two states per vertex (selected or not
+selected).  Watch out for large recursion depth; iterative DFS is safer.

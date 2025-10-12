@@ -1,0 +1,13 @@
+{
+  "id": "D",
+  "title": "Stack Fundamentals: Fully Balanced Delimiters",
+  "timeLimit": 1.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "([]{})\n", "out": "YES\n"}
+  ],
+  "hiddenTests": [
+    {"in": "([)]\n", "out": "NO\n"},
+    {"in": "(((()))){}[]\n", "out": "YES\n"}
+  ]
+}

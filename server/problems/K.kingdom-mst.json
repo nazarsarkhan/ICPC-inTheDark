@@ -1,0 +1,13 @@
+{
+  "id": "K",
+  "title": "Greedy Graphs: Rebuilding the Kingdom's MST",
+  "timeLimit": 1.5,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "4 5\n1 2 3\n1 3 4\n2 3 2\n2 4 6\n3 4 5\n", "out": "10\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5 6\n1 2 1\n1 3 2\n2 3 2\n2 4 4\n3 5 3\n4 5 2\n", "out": "8\n"},
+    {"in": "4 6\n1 2 10\n1 3 6\n1 4 5\n2 3 15\n2 4 4\n3 4 2\n", "out": "11\n"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "A",
+  "title": "Novice Arithmetic Warm-up: Sum a Sequence",
+  "timeLimit": 1.0,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "5\n1 2 3 4 5\n", "out": "15\n"}
+  ],
+  "hiddenTests": [
+    {"in": "4\n10 20 30 40\n", "out": "100\n"},
+    {"in": "1\n-7\n", "out": "-7\n"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Z",
+  "title": "State-Augmented Dijkstra: Zero-Gravity Parity Routing",
+  "timeLimit": 3.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "4 5\n1 2 3 1\n2 3 4 0\n1 3 10 0\n3 4 2 1\n2 4 8 0\n1 4\n", "out": "9\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5 7\n1 2 2 1\n2 5 5 1\n1 3 3 0\n3 4 4 1\n4 5 1 0\n2 3 2 0\n3 5 10 0\n1 5\n", "out": "7\n"},
+    {"in": "6 9\n1 2 2 1\n2 3 2 0\n3 6 3 1\n1 4 4 0\n4 5 1 1\n5 6 1 1\n2 4 2 1\n3 5 2 0\n1 6 20 0\n1 6\n", "out": "6\n"}
+  ]
+}

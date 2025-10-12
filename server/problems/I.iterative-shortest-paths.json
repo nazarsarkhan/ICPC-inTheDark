@@ -1,0 +1,13 @@
+{
+  "id": "I",
+  "title": "Weighted Graphs I: Single-Pair Dijkstra Mastery",
+  "timeLimit": 1.5,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "4 4\n1 2 5\n1 3 2\n3 2 1\n2 4 3\n1 4\n", "out": "6\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5 6\n1 2 2\n2 5 5\n1 3 4\n3 4 1\n4 5 1\n2 3 1\n1 5\n", "out": "5\n"},
+    {"in": "3 1\n1 2 10\n3 1\n", "out": "INF\n"}
+  ]
+}

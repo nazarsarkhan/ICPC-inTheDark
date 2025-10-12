@@ -1,0 +1,13 @@
+{
+  "id": "G",
+  "title": "Intermediate DP: Longest Increasing Subsequence Length",
+  "timeLimit": 1.5,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "6\n10 9 2 5 3 7\n", "out": "3\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5\n1 2 3 4 5\n", "out": "5\n"},
+    {"in": "5\n5 4 3 2 1\n", "out": "1\n"}
+  ]
+}

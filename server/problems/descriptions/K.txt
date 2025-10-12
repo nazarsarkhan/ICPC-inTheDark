@@ -1,0 +1,20 @@
+Problem K — Greedy Graphs: Rebuilding the Kingdom's MST
+========================================================
+
+Reconstruct the minimum spanning tree of a weighted, undirected, connected
+graph and output its total weight.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 200 000, n − 1 ≤ m ≤ 300 000).
+- Each of the next `m` lines contains three integers `u`, `v`, and `w`
+  (1 ≤ u, v ≤ n, 0 ≤ w ≤ 10^9) describing an undirected edge of weight `w`.
+
+Output
+------
+Print a single integer — the total weight of the minimum spanning tree.
+
+Notes
+-----
+Use Kruskal's or Prim's algorithm; both run efficiently with appropriate data
+structures.  The input graphs are guaranteed to be connected.

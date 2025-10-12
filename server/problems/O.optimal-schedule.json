@@ -1,0 +1,13 @@
+{
+  "id": "O",
+  "title": "Weighted Interval Scheduling: Optimal Non-Overlapping Value",
+  "timeLimit": 2.0,
+  "memoryLimitMB": 512,
+  "publicTests": [
+    {"in": "4\n1 3 50\n3 5 20\n6 19 100\n2 100 200\n", "out": "200\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5\n1 2 10\n2 3 20\n3 4 30\n4 5 40\n1 5 100\n", "out": "100\n"},
+    {"in": "4\n1 4 5\n3 5 1\n0 6 8\n5 7 10\n", "out": "15\n"}
+  ]
+}

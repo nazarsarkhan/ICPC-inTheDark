@@ -1,0 +1,20 @@
+Problem H — Graph Exploration Basics: Counting Hidden Islands
+============================================================
+
+Treat the vertices of an undirected graph as islands.  Count how many connected
+components exist.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 200 000, 0 ≤ m ≤ 200 000).
+- Each of the next `m` lines contains two integers `u` and `v` (1 ≤ u, v ≤ n,
+  u ≠ v) describing an undirected edge.
+
+Output
+------
+Print one integer — the number of connected components.
+
+Notes
+-----
+Depth-first search, breadth-first search, or a disjoint-set union structure will
+all solve the problem in linear time.

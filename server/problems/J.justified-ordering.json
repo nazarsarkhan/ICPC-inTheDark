@@ -1,0 +1,13 @@
+{
+  "id": "J",
+  "title": "Topological Discipline: Lexicographically Minimal Ordering",
+  "timeLimit": 1.5,
+  "memoryLimitMB": 256,
+  "publicTests": [
+    {"in": "4 3\n1 2\n1 3\n3 4\n", "out": "1 2 3 4\n"}
+  ],
+  "hiddenTests": [
+    {"in": "5 5\n1 2\n1 3\n2 4\n3 4\n4 5\n", "out": "1 2 3 4 5\n"},
+    {"in": "4 3\n2 3\n2 4\n1 2\n", "out": "1 2 3 4\n"}
+  ]
+}

@@ -1,0 +1,18 @@
+Problem N — Directed Graph Depth: Counting Strongly Connected Components
+=======================================================================
+
+Given a directed graph, compute how many strongly connected components it has.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 200 000, 0 ≤ m ≤ 300 000).
+- Each of the next `m` lines contains two integers `u` and `v` (1 ≤ u, v ≤ n)
+  describing a directed edge from `u` to `v`.
+
+Output
+------
+Print a single integer — the number of strongly connected components.
+
+Notes
+-----
+Kosaraju's, Tarjan's, or Gabow's algorithms solve this in linear time.

@@ -1,0 +1,20 @@
+Problem P — Combinatorial DAG Mastery: Counting Source-to-Sink Paths
+====================================================================
+
+Given a directed acyclic graph with vertices labeled 1 through `n`, count how
+many distinct paths go from vertex 1 to vertex `n`.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n ≤ 200 000, 0 ≤ m ≤ 300 000).
+- Each of the next `m` lines contains two integers `u` and `v` (1 ≤ u, v ≤ n)
+  describing a directed edge from `u` to `v`.
+
+Output
+------
+Print the total number of distinct directed paths from 1 to `n`.
+
+Notes
+-----
+Because the graph is acyclic, dynamic programming in topological order counts
+paths in linear time.  The answer fits in 64-bit signed integers for the tests.

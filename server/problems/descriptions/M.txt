@@ -1,0 +1,23 @@
+Problem M — Weighted Grids: Four-Directional Minimum-Risk Path
+==============================================================
+
+You are exploring an `n × m` grid where each cell has a risk value.  Starting at
+the top-left cell (1,1), travel to the bottom-right cell (n,m).  Moving into a
+cell incurs its risk value.  You may move up, down, left, or right, staying
+inside the grid.  Find the minimum total risk required to reach the goal.
+
+Input
+-----
+- The first line contains two integers `n` and `m` (1 ≤ n, m ≤ 500).
+- Each of the next `n` lines contains `m` integers `r_{i,j}` (0 ≤ r_{i,j} ≤ 10^9)
+  describing the risk values.
+
+Output
+------
+Print a single integer — the minimum total risk to travel from (1,1) to (n,m)
+when the cost includes both the starting and ending cells.
+
+Notes
+-----
+Model the grid as a weighted graph and use Dijkstra's algorithm.  The grid is
+small enough that a priority queue implementation is easily fast enough.
